@@ -12,6 +12,7 @@ namespace PredictAColor.MVVM
     /// </summary>
     public class CommandViewModel : ViewModelBase
     {
+        //Комментарий
         private ICommand _command;
         /// <summary>
         /// Сама команда
