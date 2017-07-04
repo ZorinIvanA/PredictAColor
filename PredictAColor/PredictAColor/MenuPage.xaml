@@ -5,9 +5,22 @@
     xmlns:local="using:PredictAColor"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mvvm="using:PredictAColor.MVVM"
     mc:Ignorable="d">
+    <Page.DataContext>
+        <mvvm:MenuViewModel></mvvm:MenuViewModel>
+    </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Content="Новая игра" Command="{Binding NewGameCommand}" Grid.Row="0"></Button>
+        <Button Content="Продолжить" Command="{Binding ContinueGameCommand}" Grid.Row="1"></Button>
+        <Button Content="Настройки" Command="{Binding SettingsCommand}" Grid.Row="2"></Button>
+        <Button Content="Статистка" Command="{Binding StatisticsCommand}" Grid.Row="3"></Button>
     </Grid>
 </Page>

@@ -20,6 +20,11 @@ namespace PredictAColor
         public GameData ActiveGame { get; set; }
 
         /// <summary>
+        /// Текущий фрейм
+        /// </summary>
+        public Frame CurrentFrame { get; set; }
+
+        /// <summary>
         /// Переход на указанную страницу с указанной вьюмоделью
         /// </summary>
         /// <typeparam name="TPage">Тип страницы</typeparam>
@@ -29,7 +34,13 @@ namespace PredictAColor
             where TPage : Page
             where TViewModel : ViewModelBase
         {
-            throw new NotImplementedException();
+            TViewModel vm;
+            if (arguments == null || arguments.Count() == 0)
+                vm = Activator.CreateInstance(typeof(TViewModel)) as TViewModel;
+            else
+                vm = Activator.CreateInstance(typeof(TViewModel), arguments) as TViewModel;
+
+            CurrentFrame.Navigate(typeof(TPage), vm);            
         }
 
         /// <summary>
@@ -103,10 +114,16 @@ namespace PredictAColor
             MoveToPage<Settings, SettingsViewModel>();
         }
 
+        public void ReturnToGame()
+        {
+            MoveToPage<Game, GameViewModel>();
+        }
+
         protected void SaveGame()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
+
 
     }
 }

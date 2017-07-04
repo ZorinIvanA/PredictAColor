@@ -10,7 +10,7 @@ namespace PredictAColor.MVVM
     /// <summary>
     /// Базовый класс для команд
     /// </summary>
-    public abstract class CommandBase : ICommand
+    public class UICommand : ICommand
     {
         /// <summary>
         /// Событие, которое происходит, когда сработал метод CanExecute
@@ -26,7 +26,7 @@ namespace PredictAColor.MVVM
         /// Конструктор, в который передаётся действие
         /// </summary>
         /// <param name="actionToExecute">Действие, которое должна выполнять команда</param>
-        public CommandBase(Action<Object> actionToExecute)
+        public UICommand(Action<Object> actionToExecute)
         {
             _actionToExecute = actionToExecute;
         }
@@ -39,14 +39,6 @@ namespace PredictAColor.MVVM
         /// <returns>Может ли быть выполнена команда</returns>
         public virtual bool CanExecute(Object parameter)
         {
-            if (_canExecute != (_actionToExecute != null))
-            {
-                var cec = CanExecuteChanged;
-                if (cec != null)
-                    cec(this, EventArgs.Empty);
-
-                _canExecute = _actionToExecute != null;
-            }
             return _actionToExecute != null;
         }
 

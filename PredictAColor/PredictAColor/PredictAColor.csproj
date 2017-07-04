@@ -115,6 +115,9 @@
     <Compile Include="Pages\NeedSaveDialog.xaml.cs">
       <DependentUpon>NeedSaveDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageBase.xaml.cs">
+      <DependentUpon>PageBase.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
@@ -153,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\NeedSaveDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageBase.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

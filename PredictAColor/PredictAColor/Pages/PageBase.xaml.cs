@@ -21,17 +21,11 @@ namespace PredictAColor.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Game : Page
+    public partial class PageBase : Page       
     {
-        public Game()
+        public PageBase(Object viewModel)
         {
-            this.InitializeComponent();
-        }
-
-        public Game(Object vm)
-        {
-            DataContext = vm;
-            this.InitializeComponent();
+            DataContext = viewModel;
         }
     }
 }
